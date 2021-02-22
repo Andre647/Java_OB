@@ -2,7 +2,7 @@
 Repositório criado para a disciplina Linguagens I.
 
 # Desenvolvedor(a):
-## André Monteiro Sanches Garcia
+-> André Monteiro Sanches Garcia
 
 # Linguagens e Frameworks:
 - Java
