@@ -8,5 +8,5 @@ Repositório criado para a disciplina Linguagens I.
 - Java
 - Python
 - C
-- Sql
-- html
+- SQL
+- HTML
