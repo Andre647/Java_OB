@@ -11,8 +11,21 @@ public class Sistema {
         while(executarSistema){
             exibirMenu();
             opcao = scanner.nextInt();
+            avalirOpcao(opcao);
         }
     }
+
+    private void avalirOpcao(int opcao) {
+        switch (opcao){
+            case 0:
+                System.out.println("Até Logo!");
+                this.executarSistema = false;
+                break;
+            default:
+                System.out.println("Opcao ainda não implementada");
+        }
+    }
+
     public Sistema(){
         this.executarSistema = true;
         this.scanner = new Scanner(System.in);
