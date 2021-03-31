@@ -7,7 +7,7 @@ public class Conta {
 
     //Métodos
 
-    public Conta(String  cliente, int numero,double saldo) {
+    public Conta(String  cliente, int numero,double saldo) { //contrutor
         this.cliente = new Cliente (cliente);
         this.numero = numero;
         this.saldo = saldo;

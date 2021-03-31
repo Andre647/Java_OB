@@ -32,7 +32,7 @@ public class Sistema {
                 System.out.println("Operação realizada com sucesso");
                 break;
             case 3:
-                System.out.println("Informe o vaor para sacar:");
+                System.out.println("Informe o valor para sacar:");
                 double valorParaSacar = scanner.nextDouble();
                 if(this.conta.sacar(valorParaSacar)){
                     System.out.println("Operação realizada com sucesso");
@@ -44,7 +44,7 @@ public class Sistema {
             case 5:
                 System.out.println("Nome do titulo a pagar: ");
                 String nomeTitulo = scanner.next();
-                System.out.println("Valor to titulo");
+                System.out.println("Valor do titulo");
                 double valorTitulo = scanner.nextDouble();
                 System.out.println("Valor de juros por dia:");
                 double valorJurosPorDia = scanner.nextDouble();
