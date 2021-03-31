@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< Updated upstream:Atividade1/.idea/modules.xml
       <module fileurl="file://$PROJECT_DIR$/Atividade1.iml" filepath="$PROJECT_DIR$/Atividade1.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/ecm251-2021-lab2.iml" filepath="$PROJECT_DIR$/.idea/ecm251-2021-lab2.iml" />
+>>>>>>> Stashed changes:.idea/modules.xml
     </modules>
   </component>
 </project>
