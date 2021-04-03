@@ -13,6 +13,10 @@ public class Usuario {
         this.Email = Email;
     }//Contrutor
 
+    public String getNome(){
+        return this.nome;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
