@@ -5,6 +5,7 @@ public class Sistema {
     //Atribuições
     private boolean executarSistema; //Variavel auxiliar
     private Scanner scanner; //Variavel auxiliar
+    private Scanner scanner1; //Variavel auxiliar
     private Contas conta;
     private Contas conta1;
     private Contas conta2;
@@ -17,6 +18,7 @@ public class Sistema {
     public Sistema(){
         this.executarSistema = true;
         this.scanner = new Scanner(System.in);
+        this.scanner1 = new Scanner(System.in);
         this.cliente1 = new Usuario("A","A123","Azinho@gmail.com");
         this.cliente2 = new Usuario("B","B123","Bzinho@gmail.com");
         this.cliente3 = new Usuario("C","C123","Czinho@gmail.com");
@@ -42,18 +44,49 @@ public class Sistema {
                 this.executarSistema = false;
                 break;
             case 1:
-                System.out.println("Saldo R$:"+ this.conta.getSaldo());
+                System.out.println("Saldo primeira conta R$:"+ this.conta1.getSaldo());
+                System.out.println("Saldo segunda conta  R$:"+ this.conta2.getSaldo());
+                System.out.println("Saldo terceira conta R$:"+ this.conta3.getSaldo());
                 break;
             case 2:
                 System.out.println("Informe o valor para depositar:");
                 double valorParaDepositar = scanner.nextDouble();
-                this.conta.depositar(valorParaDepositar);
+                System.out.println("Informe a conta que deseja depositar: ");
+                int cEscolha = scanner1.nextInt();
+                if (cEscolha == 1){
+                    this.conta1.depositar(valorParaDepositar);
+                }
+                else if(cEscolha == 2){
+                    this.conta2.depositar(valorParaDepositar);
+                }
+                else if(cEscolha == 3){
+                    this.conta3.depositar(valorParaDepositar);
+                }
+                else{
+                    System.out.println("Invalido");
+                    break;
+                }
                 System.out.println("Operação realizada com sucesso");
                 break;
             case 3:
                 System.out.println("Informe o valor para sacar:");
                 double valorParaSacar = scanner.nextDouble();
+                System.out.println("Informe a conta que deseja sacar: ");
+                int cEscolha2 = scanner1.nextInt();
                 if(this.conta.sacar(valorParaSacar)){
+                    if (cEscolha2 == 1){
+                        this.conta1.sacar(valorParaSacar);
+                    }
+                    else if(cEscolha2 == 2){
+                        this.conta2.sacar(valorParaSacar);
+                    }
+                    else if(cEscolha2 == 3){
+                        this.conta3.sacar(valorParaSacar);
+                    }
+                    else{
+                        System.out.println("Invalido");
+                        break;
+                    }
                     System.out.println("Operação realizada com sucesso");
                 }
                 else{
@@ -76,5 +109,6 @@ public class Sistema {
             avalirOpcao(opcao);
         }
     }
+
 
 }
