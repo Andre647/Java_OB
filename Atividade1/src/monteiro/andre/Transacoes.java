@@ -23,12 +23,11 @@ public class Transacoes {
 
     public boolean transacaoValida(Contas pagante, Contas destino, String QRCode) {
 
-        //retorna se a transacao eh valida
-        //metodo stringValida eh chamado aqui
+
         return true;
     }
 
-    public void executarTransacao() {
+    public boolean executarTransacao() { //
         //executa a transacao
     }
 
