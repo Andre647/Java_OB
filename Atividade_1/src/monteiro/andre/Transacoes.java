@@ -18,18 +18,21 @@ public class Transacoes {
         double valor = Double.parseDouble(dados[2]);
         int numAleatorio = Integer.parseInt(dados[3]);
         //precisa de algum jeito de pegar a conta e o id
+        if((Contas.getNomeById(idContaDestino).equals(nomeDestino))){
+            //return false;
+        }
         return true;
     }
 
-    public boolean transacaoValida(Contas pagante, Contas destino, String QRCode) {
 
 
-        return true;
+    public boolean executarTransferencia(Contas pagante, String QRCode) {
+        if(stringValida(QRCode)){
+            return pagante.transferir(QRCode,pagante);
+        }
+        else{
+            return false;
+        }
     }
 
-    //public boolean executarTransacao() { //
-        //executa a transacao
-   // }
-
-}//Gera codigo de cada operacao
-//private boolean executarTransacao();
+}

@@ -1,24 +1,31 @@
 package monteiro.andre;
 import java.util.Scanner;
 
-public class Sistema {
+public class Sistema<bancoDados> {
     //Atribuições
     private boolean executarSistema; //Variavel auxiliar
     private Scanner scanner; //Variavel auxiliar
     private Scanner scanner1; //Variavel auxiliar
-    private Contas conta;
+    private Scanner scanner2; //Variavel auxiliar
+
     private Contas conta1;
     private Contas conta2;
     private Contas conta3;
     private Usuario cliente1;
     private Usuario cliente2;
     private Usuario cliente3;
+    //private Contas[] bancoContas;
+
+
 
     //Métodos
     public Sistema(){
         this.executarSistema = true;
         this.scanner = new Scanner(System.in);
         this.scanner1 = new Scanner(System.in);
+
+        //Criando os usuarios e contas do exercicio
+
         this.cliente1 = new Usuario("A","A123","Azinho@gmail.com");
         this.cliente2 = new Usuario("B","B123","Bzinho@gmail.com");
         this.cliente3 = new Usuario("C","C123","Czinho@gmail.com");
@@ -26,7 +33,12 @@ public class Sistema {
         this.conta2 = new Contas(cliente2,250);
         this.conta3 = new Contas(cliente3,3000);
 
+        //Preenchendo o vetor bancoContas com as 3 contas
+
+
     }
+
+
     private void exibirMenu(){
         System.out.println("Seja Bem vindo!");
         System.out.println("[ 1 ]- Visualizar Saldo");
@@ -35,8 +47,8 @@ public class Sistema {
         System.out.println("[ 4 ]- Transferir Dinheiro");
         System.out.println("[ 5 ]- Pagar Conta");
         System.out.println("[ 0 ]- Encerrar Sistema");
-    }
 
+    }
     private void avalirOpcao(int opcao) {
         switch (opcao){
             case 0:
@@ -53,48 +65,31 @@ public class Sistema {
                 double valorParaDepositar = scanner.nextDouble();
                 System.out.println("Informe a conta que deseja depositar: ");
                 int cEscolha = scanner1.nextInt();
-                if (cEscolha == 1){
-                    this.conta1.depositar(valorParaDepositar);
-                }
-                else if(cEscolha == 2){
-                    this.conta2.depositar(valorParaDepositar);
-                }
-                else if(cEscolha == 3){
-                    this.conta3.depositar(valorParaDepositar);
-                }
-                else{
-                    System.out.println("Invalido");
-                    break;
-                }
-                System.out.println("Operação realizada com sucesso");
+                this.bancoContas[cEscolha - 1].depositar(valorParaDepositar);
                 break;
             case 3:
                 System.out.println("Informe o valor para sacar:");
                 double valorParaSacar = scanner.nextDouble();
                 System.out.println("Informe a conta que deseja sacar: ");
                 int cEscolha2 = scanner1.nextInt();
-                if(this.conta.sacar(valorParaSacar)){
-                    if (cEscolha2 == 1){
-                        this.conta1.sacar(valorParaSacar);
-                    }
-                    else if(cEscolha2 == 2){
-                        this.conta2.sacar(valorParaSacar);
-                    }
-                    else if(cEscolha2 == 3){
-                        this.conta3.sacar(valorParaSacar);
-                    }
-                    else{
-                        System.out.println("Invalido");
-                        break;
-                    }
-                    System.out.println("Operação realizada com sucesso");
-                }
-                else{
-                    System.out.println("Algo de errado aconteceu!");
-                }
+                this.bancoContas[cEscolha2 - 1].sacar(valorParaSacar);
+                System.out.println("Algo de errado aconteceu!");
                 break;
             case 4:
-                //executarTransacao();
+                System.out.println("Informe o valor para transferir:");
+                double valorParaTransferir = scanner.nextDouble();
+                System.out.println("Informe a sua conta : ");
+                int cPagando = scanner1.nextInt();
+                System.out.println("Informe a quem irá o pagamento: ");
+                int cRecebendo = scanner2.nextInt();
+                String QRCode = geraQRCode(bancoContas[cRecebendo - 1],valorParaTransferir);
+                if(executarTransferencia(bancoContas[cPagando - 1],QRCode)){
+                    System.out.println("Sucesso!");
+                }
+                else{
+                    System.out.println("Invalido");
+                    break;
+                }
                 break;
             default:
                 System.out.println("Opcao ainda não implementada");

@@ -1,7 +1,6 @@
 //André Monteiro Sanches Garcia 19.01230-6
+//Samuel Antunes 19.01343-4
 
-//A fazer: gerador de id / Classe Transacao( gerar QRCODE em String[id/nome/valor/random] / validar ID, usuario
-// e se a primeira conta possui saldo suficiente)
 package monteiro.andre;
 
 public class Main {
