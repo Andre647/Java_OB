@@ -33,7 +33,7 @@ public class Sistema<bancoDados> {
         this.conta2 = new Contas(cliente2,250);
         this.conta3 = new Contas(cliente3,3000);
 
-        //Preenchendo o vetor bancoContas com as 3 contas
+
 
 
     }

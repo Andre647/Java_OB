@@ -28,7 +28,8 @@ public class Transacoes {
 
     public boolean executarTransferencia(Contas pagante, String QRCode) {
         if(stringValida(QRCode)){
-            return pagante.transferir(QRCode,pagante);
+            pagante.transferir(QRCode,pagante);
+            return true;
         }
         else{
             return false;
