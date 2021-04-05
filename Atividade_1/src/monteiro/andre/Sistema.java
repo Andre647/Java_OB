@@ -23,7 +23,7 @@ public class Sistema<bancoDados> {
         this.executarSistema = true;
         this.scanner = new Scanner(System.in);
         this.scanner1 = new Scanner(System.in);
-
+        this.scanner2 = new Scanner(System.in);
         //Criando os usuarios e contas do exercicio
 
         this.cliente1 = new Usuario("A","A123","Azinho@gmail.com");
@@ -45,11 +45,10 @@ public class Sistema<bancoDados> {
         System.out.println("[ 2 ]- Depositar Dinheiro");
         System.out.println("[ 3 ]- Sacar Dinheiro");
         System.out.println("[ 4 ]- Transferir Dinheiro");
-        System.out.println("[ 5 ]- Pagar Conta");
         System.out.println("[ 0 ]- Encerrar Sistema");
 
     }
-    private void avalirOpcao(int opcao) {
+    private void avaliarOpcao(int opcao) {
         switch (opcao){
             case 0:
                 System.out.println("Até Logo!");
@@ -65,15 +64,19 @@ public class Sistema<bancoDados> {
                 double valorParaDepositar = scanner.nextDouble();
                 System.out.println("Informe a conta que deseja depositar: ");
                 int cEscolha = scanner1.nextInt();
-                this.bancoContas[cEscolha - 1].depositar(valorParaDepositar);
+                Contas.bancoContas.get(cEscolha - 1).depositar(valorParaDepositar);
                 break;
             case 3:
                 System.out.println("Informe o valor para sacar:");
                 double valorParaSacar = scanner.nextDouble();
                 System.out.println("Informe a conta que deseja sacar: ");
                 int cEscolha2 = scanner1.nextInt();
-                this.bancoContas[cEscolha2 - 1].sacar(valorParaSacar);
-                System.out.println("Algo de errado aconteceu!");
+                if(Contas.bancoContas.get(cEscolha2 - 1).sacar(valorParaSacar)){
+                    System.out.println("Feito com Sucesso!");
+                }
+                else{
+                    System.out.println("Algo de errado aconteceu!");
+                }
                 break;
             case 4:
                 System.out.println("Informe o valor para transferir:");
@@ -82,8 +85,8 @@ public class Sistema<bancoDados> {
                 int cPagando = scanner1.nextInt();
                 System.out.println("Informe a quem irá o pagamento: ");
                 int cRecebendo = scanner2.nextInt();
-                String QRCode = geraQRCode(bancoContas[cRecebendo - 1],valorParaTransferir);
-                if(executarTransferencia(bancoContas[cPagando - 1],QRCode)){
+                String QRCode = Transacoes.geraQRCode(Contas.bancoContas.get(cRecebendo - 1),valorParaTransferir);
+                if(Transacoes.executarTransferencia(Contas.bancoContas.get(cPagando - 1),QRCode)){
                     System.out.println("Sucesso!");
                 }
                 else{
@@ -101,7 +104,7 @@ public class Sistema<bancoDados> {
         while(executarSistema){
             exibirMenu();
             opcao = scanner.nextInt();
-            avalirOpcao(opcao);
+            avaliarOpcao(opcao);
         }
     }
 

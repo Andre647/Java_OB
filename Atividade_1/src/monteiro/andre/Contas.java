@@ -8,7 +8,7 @@ public class Contas {
     protected int idConta; //Gerado a partir do numero de conta ja criadas//
     Usuario cliente;
     protected double saldo;
-    public static ArrayList<Contas> bancoContas= new ArrayList<>();
+    public static ArrayList<Contas> bancoContas = new ArrayList<>();
 
 
 
@@ -22,12 +22,7 @@ public class Contas {
     }//Construtor
 
     public static String  getNomeById(int idContaDestino) {
-        for(int i =0; i < 3;i++){
-            if(idContaDestino == bancoContas[i].idConta){
-                return bancoContas[i].cliente.Nome;
-            }
-        }
-
+        return bancoContas.get(idContaDestino).cliente.getNome();
     }
 
     public double getSaldo() {
@@ -56,13 +51,26 @@ public class Contas {
     }
 
     public boolean transferir(String qrCode,Contas pagante) {
-        String[] dados = qrCode.split(";");
+        String[] dados = qrCode.split(";"); //Dados: "idConta;nomeUsuario;valor;numeroAleatorio"
+        int idContaDestino = Integer.parseInt(dados[0]);
+        String nomeUsuarioContaDestino = dados[1];
         double valor = Double.parseDouble(dados[2]);
-        if(this.sacar(valor)){
-            pagante.depositar(valor);
+        int idTransacao = Integer.parseInt(dados[3]);
+
+        if (this.sacar(valor)){
+            pagante.getConta(idContaDestino).depositar(valor);
             return true;
         }
         return false;
     }
+
+    public static Contas getConta(int contaId){ //Retorna objeto Conta com id especificado ou null, caso não exista a conta
+        for(Contas i : Contas.bancoContas) {
+            if (i.idConta == contaId) {
+                return i;
+            }
+        }
+        return null;
     }
+}
 
