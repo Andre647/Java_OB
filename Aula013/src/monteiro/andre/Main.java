@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         List<Item> items = new ArrayList<>();
-        File file = new File("dados.txt");
+        File file = new File("dados");
         //Realiza a leitura do conteúdo desse arquivo
         try {
             //Cria elemento para iterar pelo arquivo
@@ -29,7 +29,7 @@ public class Main {
 
 
         } catch (Exception exception) {
-            System.out.println("Algo deu errado:");
+            System.out.println("Algo deu errado");
         }
     }
 
