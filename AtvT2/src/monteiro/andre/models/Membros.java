@@ -11,4 +11,5 @@ abstract public class  Membros implements PostarMensagem {
      protected String email;
      protected int funcao;
 
+
 }
