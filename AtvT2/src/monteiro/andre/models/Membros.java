@@ -7,5 +7,5 @@ abstract public class Membros {
     //Atributos
      protected String usuario;
      protected String email;
-     protected String função;
+     protected String funcao;
 }
