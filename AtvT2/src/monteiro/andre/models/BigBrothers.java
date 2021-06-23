@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Classe Concreta filha de membro, responsável por cadastrar e remover membros
+ * Filha de Membros, classe concreta BigBrothers
  */
 public class BigBrothers extends Membros{
 
