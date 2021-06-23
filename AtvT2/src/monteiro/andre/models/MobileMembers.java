@@ -7,9 +7,7 @@ import java.util.ArrayList;
  */
 public class MobileMembers extends Membros{
 
-
-
-    public MobileMembers(String usuario, String email, int funcao) {
+    public MobileMembers(String usuario, String email, int funcao ) {
         super(usuario, email, funcao);
     }
 

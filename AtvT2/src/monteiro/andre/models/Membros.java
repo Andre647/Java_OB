@@ -14,6 +14,7 @@ abstract public class  Membros implements PostarMensagem {
     protected String email;
     protected int funcao;
 
+
     // Métodos
     public Membros(String usuario, String email,int funcao) {
         this.usuario = usuario;
