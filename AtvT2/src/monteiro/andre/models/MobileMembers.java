@@ -1,5 +1,7 @@
 package monteiro.andre.models;
 
+import monteiro.andre.enums.Funcoes;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +9,7 @@ import java.util.ArrayList;
  */
 public class MobileMembers extends Membros{
 
-    public MobileMembers(String usuario, String email, int funcao ) {
+    public MobileMembers(String usuario, String email, Funcoes funcao ) {
         super(usuario, email, funcao);
     }
 
