@@ -1,8 +1,9 @@
 package monteiro.andre.interfaces;
 
 /**
- * Interface responsável por imprimir a mensagem correta de acordo com função e horario do membro
+ * Interface responsável pela mensagem
  */
 public interface PostarMensagem {
-
+    void mensagemNormal();
+    void mensagemExtra();
 }

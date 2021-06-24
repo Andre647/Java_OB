@@ -16,10 +16,13 @@ public class BigBrothers extends Membros{
         super(usuario, email, funcao);
     }
 
+    @Override
+    public void mensagemNormal() {
+        System.out.println("Sempre ajudando as pessoas membros ou não S2!");
+    }
 
-
-
-
-
-
+    @Override
+    public void mensagemExtra() {
+        System.out.println(". . .");
+    }
 }

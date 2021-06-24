@@ -13,5 +13,15 @@ public class MobileMembers extends Membros{
         super(usuario, email, funcao);
     }
 
+    @Override
+    public void mensagemNormal() {
+        System.out.println("Happy Coding!");
+    }
+
+    @Override
+    public void mensagemExtra() {
+        System.out.println("Happy_C0d1ng. Maskers");
+    }
+
 
 }

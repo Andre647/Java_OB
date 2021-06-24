@@ -10,5 +10,13 @@ public class HeavyLifters extends Membros {
         super(usuario, email, funcao);
     }
 
+    @Override
+    public void mensagemNormal() {
+        System.out.println("Podem contar conosco!");
+    }
 
+    @Override
+    public void mensagemExtra() {
+        System.out.println("N00b_qu3_n_Se_r3pita.bat");
+    }
 }

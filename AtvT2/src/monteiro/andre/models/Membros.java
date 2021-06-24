@@ -24,11 +24,12 @@ abstract public class  Membros implements PostarMensagem,Apresentacao {
         this.funcao = funcao;
     }
     //getters e setters
-
-
     public String getEmail() { return email; }
     public Funcoes getFuncao() { return funcao; }
     public String getUsuario() { return usuario; }
+
+
+
 
     @Override
     public void apresentar() {
@@ -37,10 +38,9 @@ abstract public class  Membros implements PostarMensagem,Apresentacao {
 
     @Override
     public String toString() {
-        return "{" +
-                "usuario ='" + usuario + '\'' +
-                ", email ='" + email + '\'' +
-                ", cargo =" + funcao +
-                '}';
+        return
+                "Usuario:'" + usuario + '\'' +
+                ", Email: '" + email + '\'' +
+                ", Cargo: " + funcao ;
     }
 }

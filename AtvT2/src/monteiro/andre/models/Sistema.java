@@ -1,6 +1,7 @@
 package monteiro.andre.models;
 
 import monteiro.andre.enums.Funcoes;
+import monteiro.andre.enums.Horario;
 
 
 import java.util.ArrayList;
@@ -12,11 +13,14 @@ import java.util.Scanner;
 public class Sistema {
     // Banco de dados
     private static ArrayList<Membros> bancoMembros = new ArrayList<>();
+
     //Atributos
     private boolean executarSistema = true;
     int j = 0; // Variavel auxiliar da removerMembro ( case 2 )
     int z = 0; // Variavel auxiliar da exibirMembros ( case 3 )
-    int indiceRemocao;
+    int indiceRemocao; // Variavel auxiliar da removerMembro ( case 2 )
+    static Horario horarioAtual = Horario.NORMAL;
+
     //Scanners
     private Scanner scannerEscolha = new Scanner(System.in);
     private Scanner usuarioScan = new Scanner(System.in);
@@ -35,10 +39,12 @@ public class Sistema {
     private void exibirMenu() {
         System.out.println("SEJA BEM VINDO A MASK SOCIETY");
         System.out.println("--------------------------------");
+        System.out.println("Horario atual: "+horarioAtual);
         System.out.println("[ 1 ] Cadastrar Membro");
         System.out.println("[ 2 ] Remover Membro");
         System.out.println("[ 3 ] Exibir Membros");
-        System.out.println("[ 4 ] Visualizar Horario");
+        System.out.println("[ 4 ] Trocar Horario");
+        System.out.println("[ 5 ] Postar Mensagem");
         System.out.println("[ 0 ] Sair");
     }
 
@@ -84,11 +90,28 @@ public class Sistema {
                 z = 0;
                 break;
             case 4:
+                if(horarioAtual == Horario.NORMAL){
+                    horarioAtual = Horario.EXTRA;
+                    System.out.println("Troca efetuada! ");
+                    break;
+            }
+                if(horarioAtual == Horario.EXTRA){
+                    horarioAtual = Horario.NORMAL;
+                    System.out.println("Troca efetuada! ");
+                    break;
+            }
 
+            case 5:
+                for(Membros i: bancoMembros){
+                    System.out.println(j+"º: "+i.toString());
+                    if(horarioAtual == Horario.NORMAL)i.mensagemNormal();
+                    else i.mensagemExtra();
+                    j++;
+                }
+                j = 0;
                 break;
-
             default:
-                System.out.println("Opcao ainda não implementada");
+                System.out.println("Opção ainda não implementada");
                 break;
         }
     }
