@@ -4,15 +4,29 @@ import monteiro.andre.enums.Funcoes;
 import monteiro.andre.enums.Horario;
 
 
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 /**
  * Criação da Classe Sistema, que implementará todas as outras
  */
 public class Sistema {
     // Banco de dados
-    private static ArrayList<Membros> bancoMembros = new ArrayList<>();
+    private static final ArrayList<Membros> bancoMembros = new ArrayList<>();
+
+    //Criação do arquivo csv
+
+
+
+
+
+
+
 
     //Atributos
     private boolean executarSistema = true;
@@ -21,12 +35,15 @@ public class Sistema {
     int indiceRemocao; // Variavel auxiliar da removerMembro ( case 2 )
     static Horario horarioAtual = Horario.NORMAL;
 
+
     //Scanners
-    private Scanner scannerEscolha = new Scanner(System.in);
-    private Scanner usuarioScan = new Scanner(System.in);
-    private Scanner emailScan = new Scanner(System.in);
-    private Scanner funcaoScan = new Scanner(System.in);
-    private Scanner indexScan = new Scanner(System.in);
+    final private Scanner scannerEscolha = new Scanner(System.in);
+    final private Scanner usuarioScan = new Scanner(System.in);
+    final private Scanner emailScan = new Scanner(System.in);
+    final private Scanner funcaoScan = new Scanner(System.in);
+    final private Scanner indexScan = new Scanner(System.in);
+
+
 
     public void execute(){
     int opcao;
@@ -47,7 +64,6 @@ public class Sistema {
         System.out.println("[ 5 ] Postar Mensagem");
         System.out.println("[ 0 ] Sair");
     }
-
     private void avaliarOpcao(int opcao) {
         switch (opcao){
             case 0:
@@ -115,4 +131,8 @@ public class Sistema {
                 break;
         }
     }
+
+
+
+
 }
