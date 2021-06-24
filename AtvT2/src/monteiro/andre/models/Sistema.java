@@ -35,9 +35,10 @@ public class Sistema {
     private void exibirMenu() {
         System.out.println("SEJA BEM VINDO A MASK SOCIETY");
         System.out.println("--------------------------------");
-        System.out.println("[ 1 ] Cadastrar membro");
-        System.out.println("[ 2 ] Remover membro");
+        System.out.println("[ 1 ] Cadastrar Membro");
+        System.out.println("[ 2 ] Remover Membro");
         System.out.println("[ 3 ] Exibir Membros");
+        System.out.println("[ 4 ] Visualizar Horario");
         System.out.println("[ 0 ] Sair");
     }
 
@@ -81,6 +82,9 @@ public class Sistema {
                     z++;
                 }
                 z = 0;
+                break;
+            case 4:
+
                 break;
 
             default:
