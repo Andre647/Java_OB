@@ -7,7 +7,7 @@ import monteiro.andre.interfaces.PostarMensagem;
 /**
  * Classe abstrata membros, todos com nome/email/funcao
  * Implementa as duas interfaces PostarMensagem e Apresentacao
- * Classe crucial para o programa, todos usuários são Membros
+ * Classe crucial para o programa, todos usuarios sao Membros
  */
 abstract public class  Membros implements PostarMensagem,Apresentacao {
 

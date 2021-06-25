@@ -1,7 +1,7 @@
 package monteiro.andre.interfaces;
 
 /**
- * Interface responsável por apresentar os membros
+ * Interface responsavel por apresentar os membros
  */
 public interface Apresentacao {
     void apresentar();

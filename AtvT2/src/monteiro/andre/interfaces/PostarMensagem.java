@@ -1,7 +1,7 @@
 package monteiro.andre.interfaces;
 
 /**
- * Interface responsável pela mensagem
+ * Interface responsavel pela mensagem
  */
 public interface PostarMensagem {
     void mensagemNormal();

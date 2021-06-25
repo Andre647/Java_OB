@@ -3,16 +3,13 @@ package monteiro.andre.models;
 import monteiro.andre.enums.Funcoes;
 import monteiro.andre.enums.Horario;
 
-
-
 import java.util.ArrayList;
-
 import java.util.Scanner;
 
 
 
 /**
- * Interação com o usuário, resposável pelo menu e todo tipo de ação derivado dele
+ * Interacao com o usuario, resposavel pelo menu e todos os tipos de acoes derivado deles
  */
 public class Sistema {
 
@@ -39,7 +36,7 @@ public class Sistema {
     static Horario horarioAtual = Horario.NORMAL;
 
     /**
-     * Série de scanners para interagir com o usúario ( Big Brother )
+     * Serie de scanners para interagir com o usuario ( Big Brother )
      */
     //Scanners
     final private Scanner scannerEscolha = new Scanner(System.in);
@@ -70,9 +67,9 @@ public class Sistema {
         System.out.println("[ 0 ] Sair");
     }
     /**
-     * Método crucial do programa, avalia a opção do usuario, relizando assim o cadastro/remoção/exibição/
+     * Metodo crucial do programa, avalia a opcao do usuario, relizando assim o cadastro/remocao/exibicao/
      * Postar Mensagem etc...
-     * @param opcao
+     * @param opcao pega a opção escolhida pelo usuario
      */
     private void avaliarOpcao(int opcao) {
         switch (opcao){
