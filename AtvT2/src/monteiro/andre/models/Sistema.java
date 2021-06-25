@@ -6,17 +6,20 @@ import monteiro.andre.enums.Horario;
 
 
 import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 
 /**
- * Criação da Classe Sistema, que implementará todas as outras
+ * Interação com o usuário, resposável pelo menu e todo tipo de ação derivado dele
  */
 public class Sistema {
+
     // Banco de dados
+    /**
+     * Array com todos os membros da MASK SOCIETY
+     */
     private static final ArrayList<Membros> bancoMembros = new ArrayList<>();
 
     //Criação do arquivo csv
@@ -35,7 +38,9 @@ public class Sistema {
     int indiceRemocao; // Variavel auxiliar da removerMembro ( case 2 )
     static Horario horarioAtual = Horario.NORMAL;
 
-
+    /**
+     * Série de scanners para interagir com o usúario ( Big Brother )
+     */
     //Scanners
     final private Scanner scannerEscolha = new Scanner(System.in);
     final private Scanner usuarioScan = new Scanner(System.in);
@@ -44,7 +49,7 @@ public class Sistema {
     final private Scanner indexScan = new Scanner(System.in);
 
 
-
+    //Métodos
     public void execute(){
     int opcao;
     while (executarSistema){
@@ -64,6 +69,11 @@ public class Sistema {
         System.out.println("[ 5 ] Postar Mensagem");
         System.out.println("[ 0 ] Sair");
     }
+    /**
+     * Método crucial do programa, avalia a opção do usuario, relizando assim o cadastro/remoção/exibição/
+     * Postar Mensagem etc...
+     * @param opcao
+     */
     private void avaliarOpcao(int opcao) {
         switch (opcao){
             case 0:
