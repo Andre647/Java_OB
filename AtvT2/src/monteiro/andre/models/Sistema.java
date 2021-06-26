@@ -3,7 +3,12 @@ package monteiro.andre.models;
 import monteiro.andre.enums.Funcoes;
 import monteiro.andre.enums.Horario;
 
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 
@@ -19,8 +24,15 @@ public class Sistema {
      */
     private static final ArrayList<Membros> bancoMembros = new ArrayList<>();
 
-    //Criação do arquivo csv
-
+    //Escrita do arquivo csv
+    void escrevendoCSV() throws FileNotFoundException{
+        File csvFile = new File("arquivo_super_Secreto_nao_abrir.csv");
+        PrintWriter out = new PrintWriter(csvFile);
+        for(Membros i: bancoMembros){
+            out.println(i);
+        }
+        out.close();
+    }
 
 
 
@@ -74,6 +86,12 @@ public class Sistema {
     private void avaliarOpcao(int opcao) {
         switch (opcao){
             case 0:
+                //Escrevendo o CSV
+                try {
+                    escrevendoCSV();
+                }catch (FileNotFoundException e){
+                    System.out.println("Arquivo não Encontrado :(");
+                }
                 System.out.println("Até Logo!");
                 this.executarSistema = false;
                 break;
