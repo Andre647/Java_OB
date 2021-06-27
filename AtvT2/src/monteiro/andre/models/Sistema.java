@@ -1,16 +1,14 @@
 package monteiro.andre.models;
 
+//Imports
 import monteiro.andre.enums.Funcoes;
 import monteiro.andre.enums.Horario;
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
 
 
 /**
@@ -24,28 +22,13 @@ public class Sistema {
      */
     private static final ArrayList<Membros> bancoMembros = new ArrayList<>();
 
-    //Escrita do arquivo csv
-    void escrevendoCSV() throws FileNotFoundException{
-        File csvFile = new File("arquivo_super_Secreto_nao_abrir.csv");
-        PrintWriter out = new PrintWriter(csvFile);
-        for(Membros i: bancoMembros){
-            out.println(i);
-        }
-        out.close();
-    }
-
-
-
-
-
-
 
     //Atributos
     private boolean executarSistema = true;
-    int j = 0; // Variavel auxiliar da removerMembro ( case 2 )
-    int z = 0; // Variavel auxiliar da exibirMembros ( case 3 )
-    int indiceRemocao; // Variavel auxiliar da removerMembro ( case 2 )
-    static Horario horarioAtual = Horario.NORMAL;
+    private int j = 0; // Variavel auxiliar da removerMembro ( case 2 )
+    private int z = 0; // Variavel auxiliar da exibirMembros ( case 3 )
+    private int indiceRemocao; // Variavel auxiliar da removerMembro ( case 2 )
+    private static Horario horarioAtual = Horario.NORMAL;
 
     /**
      * Serie de scanners para interagir com o usuario ( Big Brother )
@@ -59,6 +42,7 @@ public class Sistema {
 
 
     //Métodos
+
     public void execute(){
     int opcao;
     while (executarSistema){
@@ -67,6 +51,7 @@ public class Sistema {
         avaliarOpcao(opcao);
         }
     }
+
     private void exibirMenu() {
         System.out.println("SEJA BEM VINDO A MASK SOCIETY");
         System.out.println("--------------------------------");
@@ -78,12 +63,23 @@ public class Sistema {
         System.out.println("[ 5 ] Postar Mensagem");
         System.out.println("[ 0 ] Sair");
     }
+
+    //Escrita do arquivo csv
+    private void escrevendoCSV() throws FileNotFoundException{
+        File csvFile = new File("arquivo_super_Secreto_nao_abrir.csv");
+        PrintWriter out = new PrintWriter(csvFile);
+        for(Membros i: bancoMembros){
+            out.println(i);
+        }
+        out.close();
+    }
+
     /**
      * Metodo crucial do programa, avalia a opcao do usuario, relizando assim o cadastro/remocao/exibicao/
      * Postar Mensagem etc...
      * @param opcao pega a opção escolhida pelo usuario
      */
-    private void avaliarOpcao(int opcao) {
+    private void avaliarOpcao(int opcao) throws InputMismatchException {
         switch (opcao){
             case 0:
                 //Escrevendo o CSV
@@ -114,9 +110,10 @@ public class Sistema {
                 break;
             case 2://Removendo Membro
                 for(Membros i: bancoMembros){
-                    System.out.println(j+"º: "+i.toString());
+                    System.out.println("[ "+j+" ] "+i.toString());
                     bancoMembros.get(j).apresentar();
                     j++;
+                    System.out.println(" ");
                 }
                 j = 0;
                 System.out.println("Selecione o index de quem será removido: ");
@@ -125,7 +122,7 @@ public class Sistema {
                 break;
             case 3:
                 for(Membros i: bancoMembros){
-                    System.out.println(z+"º: "+i.toString());
+                    System.out.println("[ "+z+" ] "+i.toString());
                     z++;
                 }
                 z = 0;
@@ -148,6 +145,7 @@ public class Sistema {
                     if(horarioAtual == Horario.NORMAL)i.mensagemNormal();
                     else i.mensagemExtra();
                     j++;
+                    System.out.println(" ");
                 }
                 j = 0;
                 break;
@@ -156,8 +154,5 @@ public class Sistema {
                 break;
         }
     }
-
-
-
 
 }
